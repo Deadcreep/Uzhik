@@ -5,27 +5,20 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.text.TextPaint
 import android.view.View
-import android.widget.Toast
+import android.widget.TextView
+import com.nurgle.android.uzhik.database.Product
 
-/**
- * Created by Nurgle on 01.03.2018.
- */
 class ProductView(context: Context) : View(context) {
 
-    var text: String = "Hello"
+    lateinit var product: Product
 
-    private val paint = TextPaint().apply {
+    val paint = TextPaint().apply {
         color = Color.BLACK
-        textSize = 42f
+        textSize = 22f
     }
 
     override fun onDraw(canvas: Canvas?) {
         if (canvas == null) return
-        canvas.drawText(text, 100f, 100f, paint)
+        canvas.drawText(product.name, 30f, 30f, paint)
     }
-
-    /*override fun setOnClickListener(l: OnClickListener?) {
-        super.setOnClickListener(l)
-        Toast.makeText(context, text, Toast.LENGTH_SHORT)
-    }*/
 }
